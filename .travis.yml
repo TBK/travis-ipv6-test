@@ -33,3 +33,7 @@ script:
   - /sbin/ifconfig || ip addr
   - ruby web-server-test.rb
   - ruby udp-socket-test.rb
+  - echo "\nThe power of sudo!"
+  - sudo ruby web-server-test.rb
+  - sudo ruby udp-socket-test.rb
+  
