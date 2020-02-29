@@ -9,6 +9,14 @@ arch:
 matrix:
   include:
     - os: linux
+      dist: bionic
+      sudo: required
+      env: NAME=bionic-vm
+    - os: linux
+      dist: bionic
+      sudo: false
+      env: NAME=bionic-container
+    - os: linux
       dist: xenial
       sudo: required
       env: NAME=xenial-vm
@@ -39,7 +47,7 @@ script:
   - /sbin/ifconfig || ip addr
   - ruby web-server-test.rb
   - ruby udp-socket-test.rb
-  - echo "\nThe power of sudo!"
+  - echo -e "\nThe power of sudo!"
   - sudo ruby web-server-test.rb
   - sudo ruby udp-socket-test.rb
   
